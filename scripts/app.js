@@ -6,19 +6,30 @@
 // цель набрать как можно больше баллов из 10
 const
 
-getRandomInt = function () {
-    return Math.floor(Math.random() * (9 - 1)) + 1;
-},
-a = getRandomInt(),
-b = getRandomInt(),
+    getRandomInt = function () {
+        return Math.floor(Math.random() * (9 - 1)) + 1;
+    },
 
-dB = {
-countPoint:0,
+    db = {
+    correct:0,
+    inCorrect:0,
 
-    
-};
+        quest: () => {
+            for (let i = 0; i <= 9; i++) {
+                let a = getRandomInt();
+                let b = getRandomInt();
+                let q = +prompt("Сколько будет" + a + "*" + b, "");
+                if(db.inCorrect >= 3){
+                    break;
+                }
+                if (q == a * b) {
+                   db.correct++;
+                } else {
+                    db.inCorrect++;
+                }
 
+            }
+        }
+    };
 
-    
-
-
+db.quest();
