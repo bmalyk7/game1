@@ -1,35 +1,37 @@
-// //  Игра в которой нужно првально нужно ответить на заданый вопрос, который связан с математическими знаниями.
-// // участвует 1 игрок
-// // Задаеться вопрос с таблицы умножения
-// // При правильном ответе записываеться один бал 
-// при неправильном ответе записываеться ошибка, максимум можно иметь 3 ошибки
-// цель набрать как можно больше баллов из 10
-const
+let list = {};
 
-    getRandomInt = function () {
-        return Math.floor(Math.random() * (9 - 1)) + 1;
-    },
 
-    db = {
-    correct:0,
-    inCorrect:0,
+let x = prompt("Впишите ответ", "");
 
-        quest: () => {
-            for (let i = 0; i <= 9; i++) {
-                let a = getRandomInt();
-                let b = getRandomInt();
-                let q = +prompt("Сколько будет" + a + "*" + b, "");
-                if(db.inCorrect >= 3){
-                    break;
-                }
-                if (q == a * b) {
-                   db.correct++;
-                } else {
-                    db.inCorrect++;
-                }
-
+function start() {
+    for (let i = 1; i <= 2; i++) {
+        if (x === "show") {
+            if (IsEmpty(list)) {
+                alert("Нет данных");
+            } else {
+                console.log(list);
             }
+            console.log(list);
         }
-    };
+        if (x === "add") {
+            let ert = prompt("Дай новое свойство", ""),
+                da = +prompt("Дай значение свойству", "");
+            list[ert] = da;
+        }
+        if (x === "del") {
 
-db.quest();
+        }
+
+    }
+
+}
+
+function IsEmpty(list) {
+    for (let key in list) {
+        return false;
+    }
+    return true;
+}
+
+start();
+IsEmpty();
